@@ -15,7 +15,9 @@ const Login = () => {
     try {
       const res = await axios.post('http://localhost:3000/login', userData);
       if (res.data.status === 200) {
-        navigate('/');
+
+        localStorage.setItem('user', JSON.stringify(res.data.data));
+        window.location.href="/"
       } else {
         alert('Invalid username or password');
       }

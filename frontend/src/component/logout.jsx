@@ -8,7 +8,8 @@ const Logout = () => {
   const handleLogout = async () => {
     try {
       await axios.get('http://localhost:3000/logout');
-      navigate('/login');
+      localStorage.removeItem('user');
+     window.location.href="/login"
     } catch (error) {
       console.error(error);
       alert('Logout failed');
